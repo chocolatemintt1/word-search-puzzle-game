@@ -3,7 +3,8 @@
 :root {
     --cell-size-desktop: 45px;
     --cell-size-tablet: 35px;
-    --cell-size-mobile: 26px;
+    --cell-size-mobile: 32px;
+    /* Increased from 26px */
     --primary-color: #1a73e8;
     --found-color: #a5d6a7;
     --selected-color: #bbdefb;
@@ -215,9 +216,6 @@ button:active {
         gap: 15px;
     }
 }
-
-
-/* Mobile Landscape Styles */
 
 @media screen and (max-height: 600px) and (orientation: landscape) {
     .container {
