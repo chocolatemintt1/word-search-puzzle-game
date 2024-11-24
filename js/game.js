@@ -2,14 +2,14 @@
 export class WordSearchPuzzle {
     constructor() {
         this.grid = [];
-        this.size = 12;
+        this.size = 9; // Changed to 9x9
         this.words = [];
         this.foundWords = new Set();
         this.selectedCells = [];
         this.wordList = [
-            'JAVASCRIPT', 'PYTHON', 'JAVA', 'HTML', 'CSS',
-            'REACT', 'ANGULAR', 'VUE', 'NODE', 'EXPRESS',
-            'MONGO', 'SQL', 'PHP', 'RUBY', 'SWIFT'
+            'REACT', 'VUE', 'HTML', 'CSS',
+            'JAVA', 'PHP', 'RUBY', 'NODE',
+            'API', 'SQL', 'NEXT', 'WEB'
         ];
         this.directions = [
             [0, 1], // right
@@ -63,25 +63,27 @@ export class WordSearchPuzzle {
         });
 
         // Prevent zoom on double tap
-        this.gridElement.addEventListener('dblclick', (e) => {
-            e.preventDefault();
-        });
+        this.gridElement.addEventListener('dblclick', (e) => e.preventDefault());
 
-        // Handle orientation change
-        window.addEventListener('orientationchange', () => {
-            setTimeout(() => {
-                this.render();
-            }, 200);
-        });
+        // Handle responsive layout
+        const handleResize = () => {
+            const isMobile = window.innerWidth <= 480;
+            const isTablet = window.innerWidth <= 768 && window.innerWidth > 480;
+            const cellSize = isMobile ? 28 : (isTablet ? 35 : 40);
+            this.gridElement.style.gridTemplateColumns = `repeat(${this.size}, ${cellSize}px)`;
+        };
 
-        // Handle window resize
-        let resizeTimeout;
         window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                this.render();
-            }, 250);
+            clearTimeout(this.resizeTimeout);
+            this.resizeTimeout = setTimeout(handleResize, 250);
         });
+
+        window.addEventListener('orientationchange', () => {
+            setTimeout(handleResize, 200);
+        });
+
+        // Initial size setup
+        handleResize();
     }
 
     newGame() {
@@ -91,17 +93,12 @@ export class WordSearchPuzzle {
         this.selectedCells = [];
         this.isSelecting = false;
 
-        // Randomly select words
-        this.words = this.shuffleArray([...this.wordList])
-            .slice(0, 8); // Use 8 words per puzzle
+        // Select 6 random words
+        this.words = this.shuffleArray([...this.wordList]).slice(0, 6);
 
-        // Place words in the grid
+        // Place words and fill empty cells
         this.words.forEach(word => this.placeWord(word));
-
-        // Fill empty cells
         this.fillEmptyCells();
-
-        // Render the new game
         this.render();
         this.updateStats();
     }
@@ -171,10 +168,6 @@ export class WordSearchPuzzle {
     }
 
     render() {
-        // Set grid template
-        this.gridElement.style.gridTemplateColumns = `repeat(${this.size}, 40px)`;
-
-        // Clear previous content
         this.gridElement.innerHTML = '';
         this.wordListElement.innerHTML = '';
 
