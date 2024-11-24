@@ -1,5 +1,3 @@
-/* styles.css */
-
 :root {
     --cell-size-desktop: 45px;
     --cell-size-tablet: 35px;
@@ -51,9 +49,6 @@ h1 {
     max-width: 100%;
 }
 
-
-/* Grid Styles */
-
 .grid {
     display: grid;
     gap: 2px;
@@ -87,9 +82,6 @@ h1 {
     background: var(--found-color);
 }
 
-
-/* Word List Styles */
-
 .word-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -112,9 +104,6 @@ h1 {
     background: var(--found-color);
     text-decoration: line-through;
 }
-
-
-/* Controls and Stats */
 
 .controls {
     margin-top: clamp(15px, 3vw, 25px);
@@ -149,9 +138,6 @@ button:active {
     font-size: clamp(14px, 1.5vw, 16px);
 }
 
-
-/* Desktop Styles */
-
 @media screen and (min-width: 1024px) {
     .game-area {
         flex-wrap: nowrap;
@@ -164,9 +150,6 @@ button:active {
         background: #f0f0f0;
     }
 }
-
-
-/* Tablet Styles */
 
 @media screen and (max-width: 1023px) {
     .cell {
@@ -182,9 +165,6 @@ button:active {
         grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     }
 }
-
-
-/* Mobile Styles */
 
 @media screen and (max-width: 480px) {
     .container {
@@ -240,9 +220,6 @@ button:active {
         padding-right: 8px;
     }
 }
-
-
-/* Touch Device Optimizations */
 
 @media (hover: none) {
     .cell {
