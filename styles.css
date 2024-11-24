@@ -145,6 +145,12 @@ button:active {
     .word-list {
         min-width: 150px;
     }
+    .social-links {
+        gap: 15px;
+    }
+    .footer-content {
+        padding: 0 10px;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -168,6 +174,12 @@ button:active {
     .word-item {
         padding: 6px 12px;
     }
+    .social-links {
+        gap: 15px;
+    }
+    .footer-content {
+        padding: 0 10px;
+    }
 }
 
 @media screen and (max-height: 600px) and (orientation: landscape) {
@@ -181,6 +193,12 @@ button:active {
     .cell {
         width: var(--cell-size-mobile);
         height: var(--cell-size-mobile);
+    }
+    .social-links {
+        gap: 15px;
+    }
+    .footer-content {
+        padding: 0 10px;
     }
 }
 
@@ -211,4 +229,51 @@ button:active {
     .stats {
         color: #a0a0a0;
     }
+}
+
+.footer {
+    background-color: white;
+    padding: 20px 0;
+    margin-top: 40px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.footer-content p {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.social-link:hover .social-icon {
+    color: var(--primary-color);
 }
