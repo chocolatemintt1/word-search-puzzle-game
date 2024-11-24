@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a73e8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Word Search Puzzle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Word Search Puzzle</h1>
+        <div class="game-area">
+            <div class="grid" id="grid"></div>
+            <div class="word-list" id="wordList"></div>
+        </div>
+        <div class="controls">
+            <button id="newGame">New Game</button>
+        </div>
+        <div class="stats" id="stats">
+            Found: <span id="foundCount">0</span> / <span id="totalWords">0</span>
+        </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
