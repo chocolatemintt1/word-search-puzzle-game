@@ -187,19 +187,32 @@ button:active {
 
 @media screen and (max-width: 480px) {
     .container {
-        padding: 12px;
+        padding: 10px;
+        width: 100%;
     }
     .cell {
         width: var(--cell-size-mobile);
         height: var(--cell-size-mobile);
+        font-size: 16px;
+        /* Set explicit font size for mobile */
+        font-weight: 600;
+        /* Slightly reduced from bold for better fit */
     }
     .word-list {
-        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-        gap: 6px;
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 8px;
+        padding: 8px;
     }
     .word-item {
-        padding: 6px 8px;
-        font-size: 13px;
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    .game-area {
+        gap: 15px;
     }
 }
 
@@ -208,18 +221,25 @@ button:active {
 
 @media screen and (max-height: 600px) and (orientation: landscape) {
     .container {
-        padding: 10px;
+        padding: 8px;
     }
     .game-area {
         flex-direction: row;
+        gap: 12px;
     }
     .cell {
         width: var(--cell-size-mobile);
         height: var(--cell-size-mobile);
+        font-size: 15px;
     }
     h1 {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+    }
+    .word-list {
+        max-height: 70vh;
+        overflow-y: auto;
+        padding-right: 8px;
     }
 }
 
